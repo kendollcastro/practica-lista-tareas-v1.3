@@ -12,7 +12,7 @@ let contadorTareas = 0;
 let tareas = [];
 // Trata de obtener la lista de tareas de localStorage,
 // si el resultado es distinto de 'null', usa las tareas almacenadas.
-fetch('https://rickandmortyapi.com/api/character')
+fetch('https://js2-tareas-api.netlify.app/api/tareas?uid=[ID')
   .then((response) => response.json())
   .then((data) => {
     // Add characters to list.
