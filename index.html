@@ -3,19 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="public/css/styles.css">
-  <title>Lista de tareas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Best Practices HTML</title>
 </head>
 <body>
-  <form id="new-task-form" class="new-task-form">
-    <label for="new-task-input">Nueva tarea</label>
-    <input id="new-task-input" type="text" required>
-    <input id="new-task-date" type="date" required>
-    <input type="submit" value="Agregar" id="new-task-submit">
-  </form>
-  <ul id="task-list" class="task-list">
-    <!-- Las tareas van acá -->
-  </ul>
-  <script src="js/script.js"></script>
+  <h1>Best Practices HTML</h1>
+  <div id="wrapper-brackground">
+
+    <!--Wrapper Formulario-->
+    <div id="wrapper-formulario">
+      <div id="formulario">
+        <img src="" alt="">
+        <!--Account-->
+        <form action="formulario.html" method="POST">
+          <div class="account">
+            <h4 class="Titulos">Account</h4>
+            <div>
+              <input type="text" name="full-name" id="account" value="Full Name" class="casillas">
+            </div>
+            <div>
+              <input type="text" name="e-mail" id="account" value="E-mail" class="casillas">
+            </div>
+            <div>
+              <input type="text" name="password" id="account" value="Password" class="casillas">
+            </div>
+          </div>
+          <br>
+          <!--Date of birth-->
+          <div class="date-birth">
+            <h4 class="Titulos">Date of Birth</h4>
+            <input type="date" name="date-of-birth" id="date" class="casillas">
+          </div>
+          <br>
+          <!--Gender-->
+          <div class="gender clearfix">
+            <h4 class="Titulos">Gender</h4>
+              <!--Male-->
+            <div class="gender-back clearfix">
+              <input type="radio" value="male" name="gender"id="gender">
+              <label for="gender">Male</label>
+            </div>
+              <!--Female-->
+            <div class="gender-back clearfix">
+              <input type="radio" value="female" name="gender" id="gender">
+              <label for="gender">Female</label>
+            </div>
+          </div>
+
+          <!--Pyment Details-->
+          <div class="payment clearfix">
+            <h4 class="Titulos">Payment Details</h4>
+            <button class="visa">
+              <img src="images/visa.png" alt="" class="visa">
+              <p>Credit Card</p>
+            </button>
+            <button class="paypal">
+              <img src="images/paypal.png" alt="" class="paypal">
+              <p>PayPal</p>
+            </button>
+            <div>
+              <input type="text" name="card-number" id="payment" value="Card Number" class="casillas">
+            </div>
+            <div>
+              <input type="text" name="card" id="payment" value="Card" class="casillas">
+            </div>
+            <div>
+              <input type="date" name="card-date" id="payment" class="casillas">
+            </div>
+          </div>
+          <br>
+          <!--Terms y Conditions-->
+          <div class="terms">
+            <h5 class="titulo-terms">Terms y Conditions</h5>
+            <input type="checkbox" name="terms-conditions" id="terms" value="terms">
+            <label class="terms-text" for="terms">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium aspernatur veniam libero corporis architecto fugiat eum amet quaerat ratione soluta unde atque mollitia facere possimus dolor velit ullam, omnis eaque.</label>
+          </div>
+          <br>
+          <!--Sing Up-->
+          <div class="sing-up">
+            <button type="submit">Sing Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
