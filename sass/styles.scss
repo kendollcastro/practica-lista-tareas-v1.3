@@ -34,6 +34,11 @@ body {
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
+
+  input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #999;
+  }
 }
 
 .task-list__delete {

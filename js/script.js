@@ -40,30 +40,32 @@ function addTask(nombreTarea, fechaTarea, completoTarea) {
     .then((response) => response.json())
     .then((data) => {
       appendTaskDOM(data);
-      console.log(data);
     });
 }
 
 // taskStatus(): Actualiza el estado de una tarea.
 function taskStatus(id, complete) {
-  // Recorre la lista de tareas.
+  // Cuando encuentra la tarea con el id correcto cambia su estado.
+  const tareaFind = tareas.find((tarea) => tarea._id === id);
+  if (tareaFind) {
+    tareaFind.complete = complete;
+    const tareaUpdate = {
+      name: tareaFind.name,
+      complete,
+      date: tareaFind.date,
+    };
 
-  for (let i = 0; i < tareas.length; i += 1) {
-    // Cuando encuentra la tarea con el id correcto cambia su estado.
-    if (tareas[i]._id === id) {
-      tareas[i].complete = complete;
-      const tareaActualizada = {
-        name: tareas[i].name,
-        complete: complete,
-        date: tareas[i].date,
-      };
-    }
+    const fetchOptions = {
+      method: 'PUT',
+      body: JSON.stringify(tareaUpdate),
+    };
+
+    fetch(`https://js2-tareas-api.netlify.app/api/tareas/${id}?uid=14`, fetchOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
-  const fetchOptions = {
-    method: 'PUT',
-    body: JSON.stringify(checked),
-  };
-  fetch(`https://js2-tareas-api.netlify.app/api/tareas/${id}?uid=14`, fetchOptions);
 }
 
 // deleteTask(): Borra una tarea.
@@ -127,7 +129,7 @@ function appendTaskDOM(tarea) {
   // Evento para marcar tareas como completas.
   checkbox.addEventListener('click', (event) => {
     const complete = event.currentTarget.checked;
-    const taskId =  event.currentTarget.dataset.taskId;
+    const taskId = event.currentTarget.dataset.taskId;
     taskStatus(taskId, complete);
   });
   // Evento para borrar tareas.
